@@ -14,6 +14,7 @@ import { useChartGrid } from "../_hooks/useChartGrid";
 import { PrimaryAbilityChart } from "./PrimaryAbilityChart";
 import { formatDate } from "../utils";
 import { Link } from "@chakra-ui/next-js";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 export const AbilityPointAverage = ({ weapon }: { weapon: string }) => {
   const { columns, ratio } = useChartGrid();
@@ -77,10 +78,12 @@ export const AbilityPointAverage = ({ weapon }: { weapon: string }) => {
       <HStack>
         <Spacer />
         <Text color="gray.500" fontSize="sm">
-          Powered by{" "}
+          このページで使用されている統計データは{" "}
           <Link href="https://stat.ink/" isExternal color="blue.500">
             stat.ink
-          </Link>
+            <ExternalLinkIcon mx="2px" />
+          </Link>{" "}
+          によって提供されています
         </Text>
       </HStack>
     </Stack>
