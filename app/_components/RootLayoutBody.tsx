@@ -2,15 +2,18 @@
 
 import { PropsWithChildren } from "react";
 import { Providers } from "../providers";
-import { Box, Stack } from "@chakra-ui/react";
+import { Box, Spacer, Stack } from "@chakra-ui/react";
 import { Navbar } from "./Navbar";
+import { Footer } from "./Footer";
 
 export const RootLayoutBody = ({ children }: PropsWithChildren) => {
   return (
     <Providers>
-      <Stack spacing="0">
+      <Stack spacing="0" minHeight="100vh">
         <Navbar />
         <Box as="main">{children}</Box>
+        <Spacer />
+        <Footer />
       </Stack>
     </Providers>
   );
