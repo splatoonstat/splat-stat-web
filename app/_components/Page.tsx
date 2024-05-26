@@ -1,10 +1,19 @@
 "use client";
 
-import { Container, Heading, Select, Stack } from "@chakra-ui/react";
+import {
+  Center,
+  Container,
+  HStack,
+  Heading,
+  Select,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { data } from "../data";
 import { ChangeEventHandler, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AbilityPointAverage } from "./AbilityPointAverage";
+import { AbilityPointAverageDescription } from "./AbilityPointAverageDescription";
 
 export const Page = () => {
   const router = useRouter();
@@ -41,9 +50,12 @@ export const Page = () => {
       }}
     >
       <Stack spacing="6">
-        <Heading as="h2" size="md">
-          ルール × Xパワー別 ギアパワー平均
-        </Heading>
+        <HStack>
+          <Heading as="h2" size="md">
+            ルール × Xパワー別 ギアパワー平均
+          </Heading>
+          <AbilityPointAverageDescription />
+        </HStack>
         <Select
           placeholder="ブキを選択してください"
           value={selectedWeapon}
@@ -57,7 +69,18 @@ export const Page = () => {
           ))}
         </Select>
 
-        <AbilityPointAverage weapon={selectedWeapon} />
+        {selectedWeapon ? (
+          <AbilityPointAverage weapon={selectedWeapon} />
+        ) : (
+          <Center
+            height="32"
+            background="gray.100"
+            borderRadius="md"
+            fontWeight="bold"
+          >
+            <Text>ブキを選択してください</Text>
+          </Center>
+        )}
       </Stack>
     </Container>
   );

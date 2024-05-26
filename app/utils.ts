@@ -16,3 +16,7 @@ export const alpha = (color: string | undefined, alpha: number) => {
     .toString(16)
     .padStart(2, "0")}`;
 };
+
+export const formatDate = (dateStr: string) => {
+  return new Date(dateStr).toLocaleDateString("ja-JP");
+};

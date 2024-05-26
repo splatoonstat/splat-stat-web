@@ -1,8 +1,10 @@
 import {
   AspectRatio,
   GridItem,
+  HStack,
   Heading,
   SimpleGrid,
+  Spacer,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -10,6 +12,8 @@ import { data } from "../data";
 import { GeneralAbilityChart } from "./GeneralAbilityChart";
 import { useChartGrid } from "../_hooks/useChartGrid";
 import { PrimaryAbilityChart } from "./PrimaryAbilityChart";
+import { formatDate } from "../utils";
+import { Link } from "@chakra-ui/next-js";
 
 export const AbilityPointAverage = ({ weapon }: { weapon: string }) => {
   const { columns, ratio } = useChartGrid();
@@ -26,9 +30,15 @@ export const AbilityPointAverage = ({ weapon }: { weapon: string }) => {
     return null;
   }
 
+  const { from, to } = data.abilityPointAverage.aggregationPeriod;
+
   return (
     <Stack spacing="4">
-      <Text>サンプルサイズ: {weaponData.samples.toLocaleString("ja-JP")}</Text>
+      <Text>
+        集計期間: {formatDate(from)} ~ {formatDate(to)}
+        <br />
+        サンプルサイズ: {weaponData.samples.toLocaleString("ja-JP")} players
+      </Text>
       <Stack>
         <Heading as="h3" size="md">
           通常ギア
@@ -63,6 +73,16 @@ export const AbilityPointAverage = ({ weapon }: { weapon: string }) => {
           ))}
         </SimpleGrid>
       </Stack>
+
+      <HStack>
+        <Spacer />
+        <Text color="gray.500" fontSize="sm">
+          Powered by{" "}
+          <Link href="https://stat.ink/" isExternal color="blue.500">
+            stat.ink
+          </Link>
+        </Text>
+      </HStack>
     </Stack>
   );
 };
