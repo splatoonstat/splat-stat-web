@@ -32,7 +32,14 @@ export const Page = () => {
   };
 
   return (
-    <Container maxWidth="120em">
+    <Container
+      maxWidth="120em"
+      padding={{
+        base: "4",
+        sm: "6",
+        md: "8",
+      }}
+    >
       <Stack spacing="6">
         <Heading as="h2" size="md">
           ルール × Xパワー別 ギアパワー平均

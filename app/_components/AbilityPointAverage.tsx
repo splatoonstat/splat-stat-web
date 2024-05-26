@@ -4,6 +4,7 @@ import {
   Heading,
   SimpleGrid,
   Stack,
+  Text,
 } from "@chakra-ui/react";
 import { data } from "../data";
 import { GeneralAbilityChart } from "./GeneralAbilityChart";
@@ -27,8 +28,9 @@ export const AbilityPointAverage = ({ weapon }: { weapon: string }) => {
 
   return (
     <Stack spacing="4">
+      <Text>サンプルサイズ: {weaponData.samples.toLocaleString("ja-JP")}</Text>
       <Stack>
-        <Heading as="h3" size="sm">
+        <Heading as="h3" size="md">
           通常ギア
         </Heading>
         <SimpleGrid columns={columns} gap="2">
@@ -45,7 +47,7 @@ export const AbilityPointAverage = ({ weapon }: { weapon: string }) => {
         </SimpleGrid>
       </Stack>
       <Stack>
-        <Heading as="h3" size="sm">
+        <Heading as="h3" size="md">
           専用ギア
         </Heading>
         <SimpleGrid columns={columns} gap="2">

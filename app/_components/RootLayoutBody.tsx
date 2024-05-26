@@ -10,9 +10,7 @@ export const RootLayoutBody = ({ children }: PropsWithChildren) => {
     <Providers>
       <Stack spacing="0">
         <Navbar />
-        <Box as="main" padding="8">
-          {children}
-        </Box>
+        <Box as="main">{children}</Box>
       </Stack>
     </Providers>
   );
