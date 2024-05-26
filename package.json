@@ -29,5 +29,9 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "typescript": "^5"
+  },
+  "volta": {
+    "node": "20.11.0",
+    "yarn": "1.22.22"
   }
 }
