@@ -37,8 +37,8 @@ export const AbilityPointAverageDescription = () => {
                 <ExternalLinkIcon mx="2px" />
               </Link>{" "}
               の統計情報を基に、各ブキのルールとXパワー別のギアパワー平均を集計したチャートです。
-              <br />
             </Text>
+            <Text>エラーバーは95%信頼区間を示します。</Text>
             <Text>
               凡例をクリックすると、そのルールのデータを非表示にすることができます。
             </Text>
