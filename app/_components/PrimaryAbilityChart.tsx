@@ -75,6 +75,7 @@ export const PrimaryAbilityChart = ({
         }),
       }}
       options={{
+        maintainAspectRatio: false,
         scales: {
           x: {
             title: {

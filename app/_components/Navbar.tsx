@@ -1,5 +1,5 @@
 import { Link } from "@chakra-ui/next-js";
-import { HStack, Heading, Spacer } from "@chakra-ui/react";
+import { HStack, Heading } from "@chakra-ui/react";
 
 export const Navbar = () => {
   return (

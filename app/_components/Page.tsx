@@ -1,6 +1,6 @@
 "use client";
 
-import { Heading, Select, Stack } from "@chakra-ui/react";
+import { Container, Heading, Select, Stack } from "@chakra-ui/react";
 import { data } from "../data";
 import { ChangeEventHandler, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -32,24 +32,26 @@ export const Page = () => {
   };
 
   return (
-    <Stack spacing="6">
-      <Heading as="h2" size="md">
-        ルール × Xパワー別 ギアパワー平均
-      </Heading>
-      <Select
-        placeholder="ブキを選択してください"
-        value={selectedWeapon}
-        onChange={handleSelectChange}
-        maxWidth="96"
-      >
-        {data.master.weapons.map((weapon) => (
-          <option key={weapon.id} value={weapon.id}>
-            {weapon.name}
-          </option>
-        ))}
-      </Select>
+    <Container maxWidth="120em">
+      <Stack spacing="6">
+        <Heading as="h2" size="md">
+          ルール × Xパワー別 ギアパワー平均
+        </Heading>
+        <Select
+          placeholder="ブキを選択してください"
+          value={selectedWeapon}
+          onChange={handleSelectChange}
+          maxWidth="96"
+        >
+          {data.master.weapons.map((weapon) => (
+            <option key={weapon.id} value={weapon.id}>
+              {weapon.name}
+            </option>
+          ))}
+        </Select>
 
-      <AbilityPointAverage weapon={selectedWeapon} />
-    </Stack>
+        <AbilityPointAverage weapon={selectedWeapon} />
+      </Stack>
+    </Container>
   );
 };

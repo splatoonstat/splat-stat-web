@@ -75,6 +75,7 @@ export const GeneralAbilityChart = ({
         }),
       }}
       options={{
+        maintainAspectRatio: false,
         scales: {
           x: {
             title: {
