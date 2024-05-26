@@ -1548,6 +1548,11 @@ chart.js@^4.4.3:
   dependencies:
     "@kurkle/color" "^0.3.0"
 
+chartjs-chart-error-bars@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/chartjs-chart-error-bars/-/chartjs-chart-error-bars-4.4.0.tgz#8c3df6ea1b3b4f39da4f70a0b63bb518d9446c26"
+  integrity sha512-idA2l7vXF+CzgEIMHppL+8SNiNEWpt4Ooobt9m+UfYkXJfuuzmjySAVdy8VjTXhI7lZvJU02KyaVeqdBPPeLXA==
+
 client-only@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"

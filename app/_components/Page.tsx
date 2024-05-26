@@ -33,7 +33,9 @@ export const Page = () => {
 
   return (
     <Stack spacing="6">
-      <Heading size="md">ルール × Xパワー別 ギアパワー平均</Heading>
+      <Heading as="h2" size="md">
+        ルール × Xパワー別 ギアパワー平均
+      </Heading>
       <Select
         placeholder="ブキを選択してください"
         value={selectedWeapon}

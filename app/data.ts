@@ -1,31 +1,31 @@
 import outputData from "@/app/_data/output_data.json";
 
-type BinData = {
+export type BinData = {
   bin: string;
-  mean: number;
-  std: number;
+  mean: number | null;
+  std: number | null;
   samples: number;
-  ci: number;
+  ci: number | null;
 };
 
-type ModeData = {
+export type ModeData = {
   id: string;
   data: BinData[];
 };
 
-type AbilityData = {
+export type AbilityData = {
   id: string;
   modes: ModeData[];
 };
 
-type WeaponData = {
+export type WeaponData = {
   id: string;
   samples: number;
   generalAbilities: AbilityData[];
   primaryAbilities: AbilityData[];
 };
 
-type AbilityPointAverage = {
+export type AbilityPointAverage = {
   aggregationPeriod: {
     from: string;
     to: string;
@@ -38,28 +38,28 @@ type AbilityPointAverage = {
   weapons: WeaponData[];
 };
 
-type WeaponTypeMaster = {
+export type WeaponTypeMaster = {
   id: string;
   name: string;
 };
 
-type ModeMaster = {
+export type ModeMaster = {
   id: string;
   name: string;
 };
 
-type WeaponMaster = {
+export type WeaponMaster = {
   id: string;
   name: string;
   typeId: string;
 };
 
-type AbilityMaster = {
+export type AbilityMaster = {
   id: string;
   name: string;
 };
 
-type Master = {
+export type Master = {
   weaponTypes: WeaponTypeMaster[];
   modes: ModeMaster[];
   weapons: WeaponMaster[];
@@ -67,10 +67,26 @@ type Master = {
   primaryAbilities: AbilityMaster[];
 };
 
-type Data = {
+export type Data = {
   updatedAt: string;
   master: Master;
   abilityPointAverage: AbilityPointAverage;
 };
 
 export const data = outputData as Data;
+
+export const getWeaponTypeMaster = (id: string) =>
+  data.master.weaponTypes.find((type) => type.id === id);
+
+export const getModeMaster = (id: string) =>
+  data.master.modes.find((mode) => mode.id === id);
+
+export const getWeaponMaster = (id: string) =>
+  data.master.weapons.find((weapon) => weapon.id === id);
+
+export const getAbilityMaster = (id: string) => {
+  return (
+    data.master.generalAbilities.find((ability) => ability.id === id) ??
+    data.master.primaryAbilities.find((ability) => ability.id === id)
+  );
+};
