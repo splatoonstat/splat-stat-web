@@ -1,4 +1,4 @@
-import outputData from "@/app/_data/output_data.json";
+import outputData from "@/app/_data/ability-point-average.json";
 
 export type BinData = {
   bin: string;
